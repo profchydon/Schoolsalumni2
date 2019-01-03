@@ -1,0 +1,91 @@
+.nav {
+  background-color: #060835; 
+  display: none;   
+  padding: 1rem;         
+  @include clearfix;
+
+  @include respond (mic-l) {
+    display: block;
+  }
+
+  &__burger {
+    z-index: 20;
+
+    @include respond(nex-7) {
+      height: 2.5rem;   
+    }
+  }
+
+  &__background {
+    background-color: rgba(0, 0, 0, 0.88);
+    display: none;
+    height: 100vh;
+    width: 100%;
+    top: 4%;
+    left: 0;
+    position: absolute;
+    z-index: 10;
+  }
+
+  &__list {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    list-style: none;  
+    width: 100%; 
+  }
+
+  &__item {
+    padding: 1.3rem;   
+
+    @include respond(nex-7) {
+      padding: 3rem;  
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    font-size: 3rem; 
+    left: 4rem;
+    position: absolute;
+    opacity: 0;
+    transform: translate(-84%, -50%);
+    top: 3%;
+
+    @include respond(mic-l) {
+      left: 6rem;
+      top: 2.5%;
+    } 
+    
+    @include respond(l-phone) {
+      font-size: 3vh;
+    }
+  }
+
+  &__checkbox:checked ~ &__background {
+    display: block;
+  }
+
+  &__search-btn {
+    color: $color-white; 
+    font-size: 2.5rem;
+    position: absolute;
+    right: -2rem;
+    top: 0.5%;
+    transform: translate(-130%, -3%);
+
+    @include respond(nex-7) {
+      font-size: 3.2rem;    
+      top: 0;   
+    }
+  }
+}
+
+.open {
+  display: block;
+}

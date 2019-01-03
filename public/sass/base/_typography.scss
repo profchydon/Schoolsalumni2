@@ -1,0 +1,518 @@
+body {
+  color: $color-black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: $default-font;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+
+.nav-font {
+  font-size: $font-small;
+  letter-spacing: 0.64px;
+
+  @include respond(tab-land) {
+    font-size: 2.2rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: $font-small;
+  }
+
+  @include respond(nex-7) {
+    font-size: 4.4rem;
+  }
+}
+
+.header-font {
+  color: $color-white;
+  font-size: 3.2rem;
+  font-weight: $bold;
+  text-transform: uppercase;
+
+  @include respond(nex-7) {
+    font-size: 4.8rem;
+  }
+
+  @include respond(nex-9) {
+    font-size: 3.8rem;
+  }
+
+  @include respond(s-phone) {
+    font-size: 3.4rem;
+  }
+}
+
+.logo-font {
+  font-size: 2.9rem;
+  font-weight: $bold;
+  margin: 4.8rem 0;
+  text-align: center;
+}
+
+.landing-font {
+  font-size: $font-big;
+  color: $color-grey-dark;
+
+  @include respond(tab-land) {
+    font-size: 2.8rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: 3rem;
+  }
+
+  &-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+
+    @include respond(nex-9) {
+      font-weight: $bold;
+    }
+  }
+
+  &-header {
+    font-size: 2rem;
+    font-weight: bold;
+
+    @include respond(tab-land) {
+      font-size: $font-bigger;
+    }
+  }
+}
+
+.service-font {
+  color: $color-grey-dark;
+  font-size: $font-small;
+
+  @include respond(tab-land) {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  @include respond(mic-l) {
+    font-size: 2.5rem;
+  }
+
+  &-title {
+    color: $color-orange;
+    font-size: 2.4rem;
+    font-weight: $bold;
+
+    @include respond(tab-land) {
+      font-size: 2.8rem;
+    }
+
+    @include respond(mic-l) {
+      font-size: 3.8rem;
+    }
+  }
+}
+
+.project-font {
+  @include respond(tab-land) {
+    font-size: 2.2rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 2.4rem;
+  }
+
+  &-cap {
+    font-size: 1.2rem;
+
+    @include respond(nex-7) {
+      font-size: $default-font;
+    }
+
+    &--red {
+      color: #ff0000;
+    }
+
+    &--green {
+      color: #0e9902;
+    }
+  }
+}
+
+.type-font {
+  @include respond(tab-land) {
+    font-size: 3rem;
+  }
+}
+
+.contact-header {
+  font-weight: $bold;
+
+  @include respond(tab-land) {
+    font-size: 3rem;
+  }
+}
+
+.acct-font {
+  font-size: $font-big;
+
+  @include respond(tab-land) {
+    font-size: 2.4rem;
+  }
+
+  &-title {
+    font-size: 2rem;
+    font-weight: $bold;
+
+    @include respond(tab-land) {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.password-font {
+  @include respond(tab-land) {
+    font-size: 2.2rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 2.4rem;
+  }
+}
+
+.schools-title {
+  font-weight: $bold;
+
+  @include respond(tab-land) {
+    font-size: 2.5rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 3.2rem;
+  }
+}
+
+.box-font {
+  font-size: $font-small;
+
+  @include respond(tab-land) {
+    font-size: $font-big;
+  }
+
+  @include respond(mic-l) {
+    font-size: 1.7rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: 3rem;
+  }
+
+  &-title {
+    font-weight: $bold;
+    line-height: normal;
+  }
+}
+
+.school-header {
+  font-size: 2.2rem;
+  font-weight: 400;
+
+  @include respond(tab-land) {
+    font-size: 3.4rem;
+  }
+
+  &-main {
+    font-weight: $bold;
+  }
+}
+
+.project-title {
+  font-size: $font-big;
+  font-weight: $bold;
+
+  @include respond(tab-land) {
+    font-size: 2.8rem;
+  }
+
+  @include respond(tab-port) {
+    font-size: 3.4rem;
+  }
+
+  &-sub {
+    font-size: 1.2rem;
+    font-weight: $bold;
+
+    @include respond(tab-land) {
+      font-size: 2rem;
+    }
+
+    @include respond(tab-port) {
+      font-size: 2.6rem;
+    }
+  }
+}
+
+.amount-font {
+  @include respond(tab-land) {
+    font-size: 2.6rem;
+  }
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  &-title {
+    color: $color-grey;
+    font-weight: $bold;
+  }
+}
+
+.description-font {
+  font-size: 1.3rem;
+
+  @include respond(tab-land) {
+    font-size: 2.3rem;
+  }
+
+  @include respond(tab-port) {
+    font-size: 2.6rem;
+  }
+
+  &-title {
+    color: $color-grey;
+    font-size: $font-big;
+    font-weight: $bold;
+
+    @include respond(tab-land) {
+      font-size: 2.8rem;
+    }
+
+    @include respond(tab-port) {
+      font-size: 3.4rem;
+    }
+  }
+}
+
+.empty-font {
+  color: rgba(0, 0, 0, 0.46);
+  font-size: 2.4rem;
+  font-weight: 400;
+
+  @include respond(tab-land) {
+    font-size: 4.4rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: 3.6rem;
+    text-align: center;
+  }
+}
+
+.radio-font {
+  @include respond(tab-land) {
+    font-size: 3rem;
+  }
+}
+
+.progress-font {
+  color: $color-grey;
+  font-size: 1.2rem;
+
+  @include respond(tab-land) {
+    font-size: 3rem;
+  }
+}
+
+.dash-font {
+  font-size: $font-small;
+  font-weight: bold;
+
+  @include respond(tab-land) {
+    font-size: 2.4rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: 3.4rem;
+  }
+
+  &-header {
+    font-size: $default-font;
+
+    @include respond(tab-land) {
+      font-size: 2.6rem;
+    }
+
+    @include respond(mic-l) {
+      font-size: 3.6rem;
+    }
+  }
+
+  &-title {
+    color: $color-grey;
+  }
+}
+
+.dashboard-header {
+  color: $color-grey;
+  font-size: 2.4rem;
+  font-weight: $bold;
+
+  @include respond(tab-land) {
+    font-size: 5.4rem;
+  }
+}
+
+.contact-us-header {
+  font-size: 2.4rem;
+  font-weight: 600;
+
+  @include respond(tab-land) {
+    font-size: 3.4rem;
+  }
+}
+
+.about-font {
+  font-size: $font-big;
+
+  @include respond(tab-land) {
+    font-size: 2.6rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 3.6rem;
+  }
+}
+
+.info-font {
+  font-size: $font-small;
+
+  @include respond(tab-land) {
+    font-size: 2.6rem;
+  }
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: 2.2rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 3rem;
+  }
+
+  &-title {
+    color: $color-grey;
+    font-size: $font-big;
+    font-weight: $bold;
+
+    @include respond(tab-land) {
+      font-size: 2.8rem;
+    }
+
+    @include respond(tab-port) {
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.inner-title {
+  font-size: $font-big;
+  font-weight: $bold;
+
+  @include respond(tab-land) {
+    font-size: 2.8rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: 3rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 3.4rem; 
+  }
+
+  &-sub {
+    font-size: 1.2rem;
+
+    @include respond(tab-land) {
+      font-size: 2.2rem;
+    }
+
+    @include respond(mic-l) {
+      font-size: 2.6rem;
+    }
+  }
+}
+
+.inner-font {
+  @include respond(tab-land) {
+    font-size: 2.6rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 2.8rem;
+  }
+
+  &-title {
+    color: $color-grey;
+    font-size: $font-big;
+    font-weight: $bold;
+
+    @include respond(tab-land) {
+      font-size: 2.8rem;
+    }
+
+    @include respond(mic-l) {
+      font-size: 3rem;
+    }
+
+    @include respond(nex-7) {
+      font-size: 3.4rem;
+    }
+  }
+}
+
+.gallery-title {
+  font-size: $font-big;
+  font-weight: $bold;
+
+  @include respond(tab-land) {
+    font-size: 2.8rem;
+  }
+
+  @include respond(mic-l) {
+    font-size: 3rem;
+  }
+
+  @include respond(nex-7) {
+    font-size: 3.4rem;
+  }
+}
+
+.footer-font {
+  letter-spacing: 2px;
+  color: $color-white;
+
+  &-copyright {
+    font-size: $font-small;
+
+    @include respond(nex-7) {
+      font-size: 2.2rem;
+    }
+
+    &-icon {
+      font-size: $default-font;
+      font-weight: $bold;
+    }
+  }
+
+  @include respond(nex-7) {
+    font-size: 2.2rem;
+  }
+
+  @include respond(nex-9) {
+    font-size: $default-font;
+  }
+
+  @include respond(s-phone) {
+    font-size: $font-small;
+  }
+}
