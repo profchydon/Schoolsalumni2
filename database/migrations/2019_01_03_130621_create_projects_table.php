@@ -23,6 +23,8 @@ class CreateProjectsTable extends Migration
             $table->string('state');
             $table->string('lga');
             $table->string('category');
+            $table->string('project_cost');
+            $table->string('amount_raised');
             $table->string('cost_me');
             $table->string('amount_to_donate');
             $table->timestamps();

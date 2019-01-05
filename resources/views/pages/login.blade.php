@@ -11,6 +11,8 @@
       <p class="acct-font-title">Login</p>
       <p class="acct-font">Welcome back!</p>
 
+      @include('_messages')
+
       <form class="" action="/login" method="post">
         {{ csrf_field() }}
         <div class="project__password">

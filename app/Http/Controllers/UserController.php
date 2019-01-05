@@ -46,12 +46,28 @@ class UserController extends Controller
 
     }
 
+    //
+    public function createUserProjectLoggedIn(Request $request)
+    {
+
+      $createProject = $this->project->create($request);
+
+      if ($createProject) {
+          return redirect()->back()->with('message', 'Congrats... Your project was succesfully created');
+      }elseif (!$createProject) {
+          return redirect()->back()->with('error', 'Oops! Sorry there was an error, Please try again');
+      }
+
+    }
+
     public function dashboard()
     {
 
         $projects = $this->project->getUserProjects(Auth::user()->id);
 
-        return view('dashboard', ['projects' => $projects]);
+        return view('pages.dashboard', ['projects' => $projects]);
 
     }
+
+
 }

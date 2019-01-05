@@ -22,6 +22,9 @@ class Project extends Model
         'lga',
         'category',
         'cost_me',
+        'project_cost',
+        'amount_raised',
         'amount_to_donate',
+        'status',
     ];
 }

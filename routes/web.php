@@ -11,17 +11,24 @@
 |
 */
 
-Route::view('' , 'index')->name('index');
-Route::view('login' , 'login')->name('login');
-Route::view('register' , 'register')->name('register');
-Route::view('about' , 'about')->name('about');
-Route::view('contact' , 'contact')->name('contact');
-Route::view('projects/all' , 'Allprojects')->name('projects-all');
-Route::view('search' , 'search')->name('search');
-Route::view('create' , 'create')->name('create');
+Route::group(['middleware' => 'auth'], function () {
+    Route::view('profile' , 'pages.profile')->name('profile');
+    Route::view('create_loggedin' , 'pages.create_loggedin')->name('create_loggedin');
+    Route::post('/create-user-project-loggedin' , 'UserController@createUserProjectLoggedIn')->name('create-user-project-loggedin');
+    Route::get('/dashboard' , 'UserController@dashboard')->name('dashboard');
+});
+
+Route::view('' , 'pages.index')->name('index');
+Route::view('login' , 'pages.login')->name('login');
+Route::view('register' , 'pages.register')->name('register');
+Route::view('about' , 'pages.about')->name('about');
+Route::view('contact' , 'pages.contact')->name('contact');
+Route::view('search' , 'pages.search')->name('search');
+Route::view('create' , 'pages.create')->name('create');
+
+Route::get('projects/all' , 'ProjectController@all')->name('all-projects');
+
 
 Route::post('/create-user-project' , 'UserController@createUserProject')->name('create-user-project');
-Route::get('/dashboard' , 'UserController@dashboard')->name('dashboard');
-
 Route::post('login' , '\App\Http\Controllers\Auth\LoginController@login');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');

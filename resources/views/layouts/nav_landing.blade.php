@@ -30,7 +30,7 @@
           <div class="nav__bar__link__line"></div>
         </li>
         <li class="nav__bar__item">
-          <a href="{{ route('projects-all') }}" class="nav__bar__link nav-font">
+          <a href="{{ route('all-projects') }}" class="nav__bar__link nav-font">
             Projects
           </a>
           <div class="nav__bar__link__line"></div>
@@ -75,7 +75,7 @@
       <div class="nav__bar__link__line"></div>
     </li>
     <li class="nav__bar__item">
-      <a href="{{ route('projects-all') }}" class="nav__bar__link nav-font">
+      <a href="{{ route('all-projects') }}" class="nav__bar__link nav-font">
         Projects
       </a>
       <div class="nav__bar__link__line"></div>
