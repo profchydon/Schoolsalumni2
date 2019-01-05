@@ -27,6 +27,9 @@ Route::view('search' , 'pages.search')->name('search');
 Route::view('create' , 'pages.create')->name('create');
 
 Route::get('projects/all' , 'ProjectController@all')->name('all-projects');
+Route::get('projects/sort' , 'ProjectController@sort');
+Route::get('projects/ongoing-projects' , 'ProjectController@ongoingProjects')->name('ongoing-projects');
+Route::get('projects/completed-projects' , 'ProjectController@completedProjects')->name('completed-projects');
 
 
 Route::post('/create-user-project' , 'UserController@createUserProject')->name('create-user-project');

@@ -3,16 +3,18 @@
 @include('layouts.nav')
 
 <section class="school">
-      <div class="school__dropdown">
-        <select class="school__select" id="select2-single-box" name="select2-single-box" data-placeholder="Pick your choice"
-          data-tabindex="1">
-          <option>All</option>
-          <option value="1">Ongoing </option>
-          <option value="2">Completed </option>
-        </select>
+      <form class="" action="/projects/sort" method="get">
+        <div class="school__dropdown">
+          <select class="school__select" name="status" data-placeholder="Pick your choice"
+            data-tabindex="1">
+            <option>All</option>
+            <option value="Ongoing">Ongoing </option>
+            <option value="Completed">Completed </option>
+          </select>
 
-        <button class="btn btn__sort">Go <i class="fas fa-arrow-right"></i></button>
-      </div>
+          <button type="submit" class="btn btn__sort">Go <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </form>
 
       <div class="school__boxes">
 

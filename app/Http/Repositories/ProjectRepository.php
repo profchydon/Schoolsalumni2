@@ -94,4 +94,22 @@ class ProjectRepository
         return $projects;
     }
 
+    public function sort($parameter)
+    {
+        $projects = Project::where('status' , $parameter)->simplePaginate(2);
+        return $projects;
+    }
+
+    public function completedProjects()
+    {
+        $projects = Project::where('status' , 'Completed')->simplePaginate(2);
+        return $projects;
+    }
+
+    public function ongoingProjects()
+    {
+        $projects = Project::where('status' , 'Ongoing')->simplePaginate(2);
+        return $projects;
+    }
+
 }
