@@ -8,53 +8,79 @@
 
         @include('layouts.control')
 
-
-        @if(empty($projects))
+        @if(count($projects) == 0)
 
         <div class="dashboard__body__empty">
           <h4 class="empty-font">
             You currently do not have an ongoing project
           </h4>
-          <button class="btn btn__empty" onclick="window.location.href='create.html'">Create a project</button>
+          <button class="btn btn__empty" onclick="window.location.href='{{ route('create_loggedin') }}'">Create a project</button>
           <h4 class="or-margin empty-font">or</h4>
           <h4 class="empty-font">
-            <a href="search.html" class="dashboard__body__link">Donate</a> to an existing
+            <a href="{{ route('search') }}" class="dashboard__body__link">Donate</a> to an existing
             project
           </h4>
         </div>
 
         @else
 
+        <section class="dashboard">
 
-        <div class="dashboard__body__empty">
-          <h4 class="empty-font">
-            Here is a list of your ongoing projects
-          </h4>
+          <div class="dashboard__body">
 
-          <table>
-              <thead>
-                <tr>S/no</tr>
-                <tr>Title</tr>
-                <tr>Project Cost</tr>
-                <tr>Amount raised</tr>
-              </thead>
+            <div class="dashboard__body__progress">
 
-              <tbody>
-                  <?php $i = 1; ?>
-                  @foreach($projects as $project)
-                  <tr>
-                    <td>{{ $i }}</td>
-                    <td>{{ $project->title }}</td>
-                    <td>{{ $project->project_cost }}</td>
-                    <td>{{ $project->amount_raised }}</td>
-                  </tr>
-                  <?php $i++; ?>
+              <h1 class="dashboard-header">Ongoing projects</h1>
+
+              <p class="progress-margin progress-font">
+                You have <?php echo count($projects); ?> ongoing project
+              </p>
+
+              <div class="owl-carousel owl-theme">
+
+                  @foreach ($projects as $project)
+
+                  <div class="item">
+                    <div class="dashboard__box">
+                      <div class="dashboard__box__image">
+                        <img
+                          src="img/projects/images/{{$project->image1}}"
+                          alt="Bad-school"
+                          class="dashboard__box__img"
+                        />
+                      </div>
+                      <div class="dashboard__box__details">
+                        <h5 class="dash-font dash-font-header">
+                          {{ $project->title }}
+                        </h5>
+                        <div class="dashboard__box__amount">
+                          <p class="dash-font dash-font-title">Amount needed:</p>
+                          <p class="dash-font">NGN {{ $project->project_cost }}</p>
+                        </div>
+                        <div class="dashboard__box__amount">
+                          <p class="dash-font dash-font-title">Amount raised:</p>
+                          <p class="dash-font">NGN {{ $project->amount_raised }}</p>
+                        </div>
+
+                        <div class="dashboard__box__amount">
+                          <p class="dash-font dash-font-title">Amount left:</p>
+                          <?php $amount_left = $project->project_cost - $project->amount_raised ?>
+                          <p class="dash-font">NGN {{ $amount_left }}</p>
+                        </div>
+                        <a href="/projects/project/{{$project->id}}" id="projects-b" class="btn btn__progress">View details</a>
+
+                      </div>
+                    </div>
+                  </div>
+
                   @endforeach
-              </tbody>
-          </table>
 
-        </div>
+              </div>
 
+            </div>
+          </div>
+
+        </section>
 
         @endif
 

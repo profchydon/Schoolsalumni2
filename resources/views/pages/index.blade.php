@@ -44,7 +44,7 @@
         Schoolsalumni is a school project donation and execution platform which allows projects to be carried out in schools across Nigeria to make quality education accessible to children of low-income background.
       </p>
     </div>
-    <button class="btn btn__learn" onclick="window.location.href='about-us.html'">Learn More</button>
+    <button class="btn btn__learn" onclick="window.location.href='{{ route('about') }}'">Learn More</button>
   </section>
   <section class="service" id="service">
     <div class="service__title">
@@ -81,7 +81,13 @@
         </div>
       </div>
     </div>
-    <button onclick="window.location.href='{{ route('create') }}'" class="btn btn__start">Get Started</button>
+
+    @if(Auth::user())
+      <button onclick="window.location.href='{{ route('create_loggedin') }}'" class="btn btn__start">Create Project</button>
+    @else
+        <button onclick="window.location.href='{{ route('create') }}'" class="btn btn__start">Get Started</button>
+    @endif
+
   </section>
 
 @include('layouts.footer')

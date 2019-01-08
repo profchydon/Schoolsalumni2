@@ -17,12 +17,23 @@
 
     <div class="nav__background">
       <ul class="nav__list">
+
+        @if(Auth::user())
+        <li class="nav__bar__item">
+          <a href="{{ route('dashboard') }}" class="nav__bar__link nav-font active">
+            Dashboard
+          </a>
+          <div class="nav__bar__link__line"></div>
+        </li>
+        @else
         <li class="nav__bar__item">
           <a href="{{ route('index') }}" class="nav__bar__link nav-font active">
             Home
           </a>
           <div class="nav__bar__link__line"></div>
         </li>
+        @endif
+
         <li class="nav__bar__item">
           <a href="{{ route('about') }}" class="nav__bar__link nav-font">
             About
@@ -44,9 +55,16 @@
         <li class="nav__bar__item">
           <button onclick="window.location.href='{{ route('search') }}'" class="btn btn__fund">Fund a project</button>
         </li>
+        @if(Auth::user())
         <li class="nav__bar__item">
-          <button onclick="window.location.href='{{ route('login') }}'" class="btn btn__nav">Log in</button>
+          <button onclick="window.location.href='{{ route('logout') }}'" class="btn btn__nav">Log Out</button>
         </li>
+        @else
+          <li class="nav__bar__item">
+            <button onclick="window.location.href='{{ route('login') }}'" class="btn btn__nav">Log in</button>
+          </li>
+        @endif
+
       </ul>
     </div>
 
@@ -62,12 +80,21 @@
 
 <nav class="nav__bar">
   <ul class="nav__bar__items">
+    @if(Auth::user())
+    <li class="nav__bar__item">
+      <a href="{{ route('dashboard') }}" class="nav__bar__link nav-font active">
+        Dashboard
+      </a>
+      <div class="nav__bar__link__line"></div>
+    </li>
+    @else
     <li class="nav__bar__item">
       <a href="{{ route('index') }}" class="nav__bar__link nav-font active">
         Home
       </a>
       <div class="nav__bar__link__line"></div>
     </li>
+    @endif
     <li class="nav__bar__item">
       <a href="{{ route('about') }}" class="nav__bar__link nav-font">
         About
@@ -89,8 +116,14 @@
     <li class="nav__bar__item">
       <button onclick="window.location.href='{{ route('search') }}'" class="btn btn__fund">Fund a project</button>
     </li>
+    @if(Auth::user())
     <li class="nav__bar__item">
-      <button onclick="window.location.href='{{ route('login') }}'" class="btn btn__nav">Log in</button>
+      <button onclick="window.location.href='{{ route('logout') }}'" class="btn btn__nav">Log Out</button>
     </li>
+    @else
+      <li class="nav__bar__item">
+        <button onclick="window.location.href='{{ route('login') }}'" class="btn btn__nav">Log in</button>
+      </li>
+    @endif
   </ul>
 </nav>

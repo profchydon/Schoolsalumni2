@@ -26,5 +26,10 @@ class Project extends Model
         'amount_raised',
         'amount_to_donate',
         'status',
+        "image1",
+        "image1",
+        "image1",
+        "image4",
+        "image5",
     ];
 }

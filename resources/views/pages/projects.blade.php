@@ -7,7 +7,7 @@
         <div class="school__dropdown">
           <select class="school__select" name="status" data-placeholder="Pick your choice"
             data-tabindex="1">
-            <option>All</option>
+            <option value="All">All </option>
             <option value="Ongoing">Ongoing </option>
             <option value="Completed">Completed </option>
           </select>
@@ -64,12 +64,7 @@
                 {{ $project->description }}
               </p>
             </div>
-            <button
-              class="btn btn__project"
-              onclick="window.location.href='inner(progress).html'"
-            >
-              View Report
-            </button>
+            <a href="/projects/project/{{$project->id}}" id="view-report" class="btn btn__progress">View Report</a>
           </div>
         </div>
 

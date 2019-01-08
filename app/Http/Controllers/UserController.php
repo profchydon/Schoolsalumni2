@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Repositories\UserRepository;
 use App\Http\Repositories\ProjectRepository;
 use Auth;
+use Session;
 
 class UserController extends Controller
 {
@@ -53,7 +54,10 @@ class UserController extends Controller
       $createProject = $this->project->create($request);
 
       if ($createProject) {
-          return redirect()->back()->with('message', 'Congrats... Your project was succesfully created');
+          // return redirect()->back()->with('message', 'Congrats... Your project was succesfully created');
+          Session::put('project_id' , $createProject->id);
+          Session::put('project_title' , $createProject->title);
+          return view('pages.imageupload');
       }elseif (!$createProject) {
           return redirect()->back()->with('error', 'Oops! Sorry there was an error, Please try again');
       }

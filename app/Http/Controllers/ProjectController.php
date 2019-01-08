@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Repositories\ProjectRepository;
+use Auth;
+use Session;
 
 class ProjectController extends Controller
 {
@@ -15,7 +17,7 @@ class ProjectController extends Controller
     public function __construct(ProjectRepository $project)
     {
         $this->project = $project;
-        $this->middleware('auth', ['except' => ['all' , 'sort', 'ongoingProjects', 'completedProjects']]);
+        $this->middleware('auth', ['except' => ['all' , 'sort', 'ongoingProjects', 'completedProjects', 'uploadImage', 'insertImage']]);
     }
 
     public function all()
@@ -25,19 +27,31 @@ class ProjectController extends Controller
         return view('pages.projects' , ['projects' => $projects]);
     }
 
+    public function getAproject($id)
+    {
+        $project = $this->project->getAproject($id);
+
+        return view('pages.project' , ['project' => $project]);
+    }
+
     public function sort()
     {
-        $parameter = htmlentities(strip_tags($_GET['status']));
 
-        if ($parameter == "Ongoing") {
-            return redirect()->intended('projects/ongoing-projects');
-        }elseif ($parameter == "Completed") {
-            return redirect()->intended('projects/completed-projects');
+        if (isset($_GET['status'])) {
+
+            $parameter = htmlentities(strip_tags($_GET['status']));
+
+            if ($parameter == "Ongoing") {
+                return redirect()->intended('projects/ongoing-projects');
+            }elseif ($parameter == "Completed") {
+                return redirect()->intended('projects/completed-projects');
+            }elseif ($parameter == "All") {
+                return redirect()->intended('projects/all');
+            }
+        }else {
+            return redirect()->back();
         }
 
-        // $projects = $this->project->sort($parameter);
-        // return redirect()->back()->with('projects', $projects);
-        // return view('pages.projects' , ['projects' => $projects]);
     }
 
     public function ongoingProjects()
@@ -53,4 +67,28 @@ class ProjectController extends Controller
 
         return view('pages.projects' , ['projects' => $projects]);
     }
+
+    /**
+ * success response method.
+ *
+ * @return \Illuminate\Http\Response
+ */
+  public function uploadImage(Request $request)
+  {
+
+    $project_title = session('project_title');
+    (int)$project_id = session('project_id');
+
+    $imageName = "{$project_id}"."_".request()->file->getClientOriginalName();
+
+    $imageName = preg_replace("/[^a-zA-Z0-9.]/", "", $imageName);
+
+    request()->file->move(public_path('img/projects/images'), $imageName);
+
+    $this->project->insertImage($imageName, $project_id);
+
+    return response()->json(['uploaded' => '/img/projects/images/'.$imageName]);
+
+  }
+
 }

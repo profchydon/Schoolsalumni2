@@ -64,7 +64,7 @@ class ProjectRepository
               'state' => $request->state,
               'lga' => $request->lga,
               'project_cost' => $request->project_cost,
-              'amount_raised' => "0",
+              'amount_raised' => 0,
               'cost_me' => $cost_me,
               'category' => $category,
               'amount_to_donate' => $amount_to_donate,
@@ -73,7 +73,7 @@ class ProjectRepository
             ]);
 
             if ($project) {
-                return true;
+                return $project;
             }else {
               return false;
             }
@@ -110,6 +110,40 @@ class ProjectRepository
     {
         $projects = Project::where('status' , 'Ongoing')->simplePaginate(2);
         return $projects;
+    }
+
+    public function getAproject($id)
+    {
+        $project = Project::findorfail($id);
+        return $project;
+    }
+
+    public function insertImage($imageName, $project_id)
+    {
+      $project = Project::where('id' , $project_id)->first();
+
+      if (empty($project->image1) || $project->image1 == NULL) {
+          $image_key = 'image1';
+      }elseif (empty($project->image2) || $project->image2 == NULL) {
+          $image_key = 'image2';
+      }elseif (empty($project->image3) || $project->image3 == NULL) {
+          $image_key = 'image3';
+      }elseif (empty($project->image4) || $project->image4 == NULL) {
+          $image_key = 'image4';
+      }elseif (empty($project->image5) || $project->image5 == NULL) {
+          $image_key = 'image5';
+      }
+
+      $project->update([
+          $image_key => $imageName,
+      ]);
+
+      if ($project) {
+          return true;
+      }else {
+          return false;
+      }
+
     }
 
 }

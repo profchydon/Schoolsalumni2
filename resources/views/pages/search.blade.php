@@ -7,7 +7,11 @@
     <h1 class="logo-font">logo</h1>
   </div>
   <div class="project__header project__header--2">
-    <button class="grey-bg project__header__create" onclick="window.location.href='{{ route('create') }}'">CREATE A PROJECT</button>
+    @if(Auth::user())
+      <button type="button" class="blue-bg project__header__create" onclick="window.location.href='{{ route('create_loggedin') }}'">CREATE A PROJECT</button>
+    @else
+      <button type="button" class="blue-bg project__header__create" onclick="window.location.href='{{ route('create') }}'">CREATE A PROJECT</button>
+    @endif
     <button class="blue-bg project__header__fund" onclick="window.location.href='{{ route('search') }}'">FUND EXISTING PROJECT</button>
   </div>
   <div class="center-text">
