@@ -40,7 +40,7 @@
               </div>
               <div class="school__box__overview">
                 <img
-                  src="{{ asset('img/Banner2_optimized.jpg') }}"
+                  src="/img/projects/images/{{$project->image1}}"
                   alt="Class"
                   class="school__box__pic"
                 />

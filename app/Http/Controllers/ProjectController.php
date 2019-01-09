@@ -79,7 +79,7 @@ class ProjectController extends Controller
     $project_title = session('project_title');
     (int)$project_id = session('project_id');
 
-    $imageName = "{$project_id}"."_".request()->file->getClientOriginalName();
+    $imageName = "{$project_title}"."_".request()->file->getClientOriginalName();
 
     $imageName = preg_replace("/[^a-zA-Z0-9.]/", "", $imageName);
 

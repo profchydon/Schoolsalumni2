@@ -53,8 +53,6 @@
                       </h4>
 
                       <form class="" method="post">
-                        <input type="text" name="project_title" id="project_title" value="{{session('project_title')}}">
-                        <input type="text" name="project_id" id="project_id" value="{{session('project_id')}}">
                         {!! csrf_field() !!}
                         <div class="form-group">
                             <div class="file-loading">
@@ -71,6 +69,8 @@
 
             </div>
         </div>
+
+        <a href="/dashboard" id="back-button" class="btn btn__progress"> Go to dashboard </a>
 
       </section>
 

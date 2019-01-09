@@ -40,7 +40,6 @@
                 <p class="project-margin project-font">Address</p>
                 <input type="text" name="address" id="address" class="project__input">
               </div>
-
               <div class="project__dropdowns">
                 <div class="project__dropdowns--drop">
                   <label class="project-margin-drop project-font">State</label>
@@ -57,7 +56,6 @@
                   </select>
                 </div>
               </div>
-
               <div class="project__category">
                 <p class="project-margin project-font">Category of Project</p>
                 <div class="project__category__buttons">
@@ -67,12 +65,12 @@
                 </div>
               </div>
             </div>
-
             <div id="div-2">
               <p class="project-margin-top type-font">If you are here, you agree to solely fund this project. If not, <button class="btn btn__back"
                   type="button" onclick="showProjectForm()"><i class="fas fa-arrow-left"></i> Go Back</button></p>
               <div class="project__cost">
-                <input type="checkbox" name="personal_cost_me" id="personal_cost_me" value=""> <p class="type-font"> Do you want us to cost you?</p>
+                <input type="checkbox" name="personal_cost_me" id="personal_cost_me" value="personal_cost_me">
+                <label for="personal_cost_me"><p class="type-font"> Do you want us to cost you?</p></label>
               </div>
               <div class="project__amount">
                 <p class="type-font">If No, tell us how much you want to give</p>
@@ -85,7 +83,8 @@
               <p class="project-margin-top type-font">If you are here, the group agrees to collectively fund this project. If not,
                 <button type="button" class="btn btn__back" onclick="showProjectForm()"><i class="fas fa-arrow-left"></i> Go Back</button></p>
               <div class="project__cost">
-                <input type="checkbox" name="group_cost_me" id="group_cost_me" value=""> <p class="type-font"> Do you want us to cost you?</p>
+                <input type="checkbox" name="group_cost_me" id="group_cost_me" value="group_cost_me">
+                <label for="group_cost_me"><p class="type-font"> Do you want us to cost you?</p></label>
               </div>
               <div class="project__amount">
                 <p class="type-font">If No, tell us how much you want to give</p>
@@ -99,15 +98,12 @@
                 by the public. If not, <button type="button" class="btn btn__back" onclick="showProjectForm()"><i class="fas fa-arrow-left"></i>
                   Go Back</button></p>
               <div class="project__cost">
-                <input type="checkbox" name="public_cost_me" id="public_cost_me" value=""> <p class="type-font"> Do you want us to cost you?</p>
+                <input type="checkbox" name="public_cost_me" id="public_cost_me" value="public_cost_me">
+                <label for="public_cost_me"><p class="type-font"> Do you want us to cost you?</p></label>
               </div>
               <div class="project__amount">
                 <p class="type-font">If No, tell us how much you want to give</p>
                 <input type="text" name="public_amount_to_donate" id="public_amount_to_donate" class="project__input project__input--2">
-                <div class="project__amount__upload">
-                  <img src="{{ asset('img/photo.svg') }}" alt="photo" class="project__amount__upload__pic">
-                  <button type="button" class="btn btn__upload">Upload pictures</button>
-                </div>
               </div>
               <button type="submit" class="btn btn__create">Create Project</button>
             </div>

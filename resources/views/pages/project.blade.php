@@ -60,6 +60,8 @@
 
  <a href="/projects/all" id="back-button" class="btn btn__progress"><i class="fas fa-arrow-left"></i> Back </a>
 
+  <a href="/projects/all" id="back-button" class="btn btn__progress"><i class="fas fa-money-check"></i> Fund this project </a>
+
 </section>
 
 @include('layouts.footer')

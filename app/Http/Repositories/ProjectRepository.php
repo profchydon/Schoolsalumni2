@@ -32,11 +32,11 @@ class ProjectRepository
                 $cost_me = 1;
                 $category = "Personal";
             }
-            if (isset($request->group_cost_me)) {
+            elseif (isset($request->group_cost_me)) {
                 $cost_me = 1;
                 $category = "Group";
             }
-            if (isset($request->public_cost_me)) {
+            elseif (isset($request->public_cost_me)) {
                 $cost_me = 1;
                 $category = "Public";
             }
@@ -54,6 +54,9 @@ class ProjectRepository
                 $category = "Public";
             }
 
+            $project_cost = preg_replace("/[^0-9]/", "", $request->project_cost);
+            $amount_to_donate = preg_replace("/[^0-9]/", "", $amount_to_donate);
+
             $project = Project::create([
 
               'user_id' => Auth::user()->id,
@@ -63,7 +66,7 @@ class ProjectRepository
               'address' => $request->address,
               'state' => $request->state,
               'lga' => $request->lga,
-              'project_cost' => $request->project_cost,
+              'project_cost' => $project_cost,
               'amount_raised' => 0,
               'cost_me' => $cost_me,
               'category' => $category,
@@ -89,26 +92,26 @@ class ProjectRepository
 
     public function all()
     {
-        $projects = Project::simplePaginate(2);
+        $projects = Project::simplePaginate(10);
 
         return $projects;
     }
 
     public function sort($parameter)
     {
-        $projects = Project::where('status' , $parameter)->simplePaginate(2);
+        $projects = Project::where('status' , $parameter)->simplePaginate(10);
         return $projects;
     }
 
     public function completedProjects()
     {
-        $projects = Project::where('status' , 'Completed')->simplePaginate(2);
+        $projects = Project::where('status' , 'Completed')->simplePaginate(10);
         return $projects;
     }
 
     public function ongoingProjects()
     {
-        $projects = Project::where('status' , 'Ongoing')->simplePaginate(2);
+        $projects = Project::where('status' , 'Ongoing')->simplePaginate(10);
         return $projects;
     }
 
