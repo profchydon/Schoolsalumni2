@@ -8,6 +8,7 @@ use Auth;
 use App\User;
 use App\Project;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Collection;
 
 
 class ProjectRepository
@@ -92,26 +93,26 @@ class ProjectRepository
 
     public function all()
     {
-        $projects = Project::simplePaginate(10);
+        $projects = Project::simplePaginate(8);
 
         return $projects;
     }
 
     public function sort($parameter)
     {
-        $projects = Project::where('status' , $parameter)->simplePaginate(10);
+        $projects = Project::where('status' , $parameter)->simplePaginate(8);
         return $projects;
     }
 
     public function completedProjects()
     {
-        $projects = Project::where('status' , 'Completed')->simplePaginate(10);
+        $projects = Project::where('status' , 'Completed')->simplePaginate(8);
         return $projects;
     }
 
     public function ongoingProjects()
     {
-        $projects = Project::where('status' , 'Ongoing')->simplePaginate(10);
+        $projects = Project::where('status' , 'Ongoing')->simplePaginate(8);
         return $projects;
     }
 
@@ -123,17 +124,17 @@ class ProjectRepository
 
     public function insertImage($imageName, $project_id)
     {
-      $project = Project::where('id' , $project_id)->first();
+      $project = Project::findorfail($project_id);
 
-      if (empty($project->image1) || $project->image1 == NULL) {
+      if (empty($project->image1)) {
           $image_key = 'image1';
-      }elseif (empty($project->image2) || $project->image2 == NULL) {
+      }elseif (empty($project->image2)) {
           $image_key = 'image2';
-      }elseif (empty($project->image3) || $project->image3 == NULL) {
+      }elseif (empty($project->image3)) {
           $image_key = 'image3';
-      }elseif (empty($project->image4) || $project->image4 == NULL) {
+      }elseif (empty($project->image4)) {
           $image_key = 'image4';
-      }elseif (empty($project->image5) || $project->image5 == NULL) {
+      }elseif (empty($project->image5)) {
           $image_key = 'image5';
       }
 
@@ -147,6 +148,32 @@ class ProjectRepository
           return false;
       }
 
+    }
+
+    public function getSchoolProjects($school)
+    {
+        $projects = Project::where('beneficiary_school' , $school)->simplePaginate(8);
+        return $projects;
+    }
+
+    public function getProjectForFunding($id)
+    {
+        $project = Project::findorfail($id);
+
+        return $project;
+    }
+
+    public function getSchool($value='')
+    {
+      $schools = array();
+      $projects = Project::all()->pluck('beneficiary_school');
+
+      foreach ($projects as $key => $school) {
+
+        if (in_array($school , $schools) === false) {
+            array_push($schools , $school);
+        }
+      }
     }
 
 }

@@ -41,6 +41,11 @@ a#back-button {
 .dash-font:last-child {
     margin-bottom: 10px;
 }
+p.project_header_sub_p {
+    text-align: center;
+    margin: 1rem;
+    font-weight: 600;
+}
 /*!
  * Font Awesome Free 5.1.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)

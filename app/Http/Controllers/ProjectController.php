@@ -17,7 +17,7 @@ class ProjectController extends Controller
     public function __construct(ProjectRepository $project)
     {
         $this->project = $project;
-        $this->middleware('auth', ['except' => ['all' , 'sort', 'ongoingProjects', 'completedProjects', 'uploadImage', 'insertImage']]);
+        $this->middleware('auth', ['except' => ['all' , 'getAproject', 'getProjectForFunding', 'sort', 'ongoingProjects', 'completedProjects', 'uploadImage', 'insertImage']]);
     }
 
     public function all()
@@ -68,13 +68,8 @@ class ProjectController extends Controller
         return view('pages.projects' , ['projects' => $projects]);
     }
 
-    /**
- * success response method.
- *
- * @return \Illuminate\Http\Response
- */
-  public function uploadImage(Request $request)
-  {
+    public function uploadImage(Request $request)
+    {
 
     $project_title = session('project_title');
     (int)$project_id = session('project_id');
@@ -89,6 +84,22 @@ class ProjectController extends Controller
 
     return response()->json(['uploaded' => '/img/projects/images/'.$imageName]);
 
+    }
+
+  public function getSchoolProjects($school)
+  {
+      $projects = $this->project->getSchoolProjects($school);
+
+      return view('pages.schoolprojects' , ['projects' => $projects]);
   }
+
+  public function getProjectForFunding($id)
+  {
+      $project = $this->project->getProjectForFunding($id);
+
+      return view('pages.payment' , ['project' => $project]);
+  }
+
+
 
 }

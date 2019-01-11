@@ -14,8 +14,10 @@
 Route::group(['middleware' => 'auth'], function () {
     Route::view('profile' , 'pages.profile')->name('profile');
     Route::view('create_loggedin' , 'pages.create_loggedin')->name('create_loggedin');
-    Route::post('/create-user-project-loggedin' , 'UserController@createUserProjectLoggedIn')->name('create-user-project-loggedin');
-    Route::get('/dashboard' , 'UserController@dashboard')->name('dashboard');
+    Route::post('create-user-project-loggedin' , 'UserController@createUserProjectLoggedIn')->name('create-user-project-loggedin');
+    Route::get('dashboard' , 'UserController@dashboard')->name('dashboard');
+    Route::get('school/{school}/projects' , 'ProjectController@getSchoolProjects')->name('school-projects');
+
 });
 
 Route::view('' , 'pages.index')->name('index');
@@ -31,6 +33,7 @@ Route::get('projects/project/{id}' , 'ProjectController@getAproject');
 Route::get('projects/sort' , 'ProjectController@sort');
 Route::get('projects/ongoing-projects' , 'ProjectController@ongoingProjects')->name('ongoing-projects');
 Route::get('projects/completed-projects' , 'ProjectController@completedProjects')->name('completed-projects');
+Route::get('project/funding/{id}' , 'ProjectController@getProjectForFunding')->name('fund-projects');
 
 Route::view('imageupload','pages.imageupload');
 Route::post('image-view','ProjectController@uploadImage');
