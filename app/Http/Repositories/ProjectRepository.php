@@ -7,6 +7,7 @@ use DB;
 use Auth;
 use App\User;
 use App\Project;
+use App\Funding;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Collection;
 
@@ -86,6 +87,32 @@ class ProjectRepository
 
           }
 
+
+    }
+
+    public function saveFundingTransactionDetails($request)
+    {
+        try {
+
+          $funding = Funding::create([
+
+            'project_id' => $request->project_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'amount' => $request->amount,
+            'reference_id' => $request->reference_id,
+
+          ]);
+
+          if ($funding) {
+              return 'Transaction saved successfully';
+          }else {
+              return false;
+          }
+
+        } catch (\Exception $e) {
+
+        }
 
     }
 

@@ -17,7 +17,7 @@ class ProjectController extends Controller
     public function __construct(ProjectRepository $project)
     {
         $this->project = $project;
-        $this->middleware('auth', ['except' => ['all' , 'getAproject', 'getProjectForFunding', 'sort', 'ongoingProjects', 'completedProjects', 'uploadImage', 'insertImage']]);
+        $this->middleware('auth', ['except' => ['all' , 'getAproject', 'saveFundingTransactionDetails', 'getProjectForFunding', 'sort', 'ongoingProjects', 'completedProjects', 'uploadImage', 'insertImage']]);
     }
 
     public function all()
@@ -25,6 +25,17 @@ class ProjectController extends Controller
         $projects = $this->project->all();
 
         return view('pages.projects' , ['projects' => $projects]);
+    }
+
+    public function saveFundingTransactionDetails(Request $request)
+    {
+        $transaction = $this->project->saveFundingTransactionDetails($request);
+
+        if ($transaction == "Transaction saved successfully") {
+            return "Transaction saved successfully";
+        }else {
+            return "Transaction was not saved";
+        }
     }
 
     public function getAproject($id)
