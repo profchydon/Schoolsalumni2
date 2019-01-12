@@ -33,16 +33,21 @@ class UserController extends Controller
     public function createUserProject(Request $request)
     {
 
-      $user = $this->user->createUserProject($request);
+      $data = $this->user->createUserProject($request);
 
-      if ($user) {
+      if ($data) {
 
-        $projects = $this->project->getUserProjects($user->id);
-
-        return redirect()->intended('dashboard');
+          if ($data['project']['category'] == "Group") {
+              Session::put('project_id' , $data['project']['id']);
+              Session::put('project_title' , $data['project']['title']);
+              return view('pages.imageupload');
+          }else {
+              $projects = $this->project->getUserProjects($data['user']['id']);
+              return redirect()->intended('dashboard');
+          }
 
       }else {
-        return redirect()->intended('create');
+          return redirect()->intended('create');
       }
 
     }
@@ -54,10 +59,15 @@ class UserController extends Controller
       $createProject = $this->project->create($request);
 
       if ($createProject) {
-          // return redirect()->back()->with('message', 'Congrats... Your project was succesfully created');
-          Session::put('project_id' , $createProject->id);
-          Session::put('project_title' , $createProject->title);
-          return view('pages.imageupload');
+
+          if ($createProject->category == "Group") {
+            Session::put('project_id' , $createProject->id);
+            Session::put('project_title' , $createProject->title);
+            return view('pages.imageupload');
+          }else {
+            return redirect()->back()->with('message', 'Congrats... Your project was succesfully created');
+          }
+
       }elseif (!$createProject) {
           return redirect()->back()->with('error', 'Oops! Sorry there was an error, Please try again');
       }

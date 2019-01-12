@@ -26,7 +26,6 @@ class CreateProjectsTable extends Migration
             $table->integer('project_cost')->nullable();
             $table->integer('amount_raised')->nullable();
             $table->integer('cost_me')->nullable();
-            $table->integer('amount_to_donate');
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
             $table->string('image3')->nullable();

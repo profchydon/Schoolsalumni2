@@ -35,10 +35,6 @@
         <textarea rows="3" cols="80" name="description" class="project__input" id="description"></textarea>
       </div>
       <div class="project__name">
-        <p class="project-margin project-font">Cost of the Project</p>
-        <input type="text" name="project_cost" id="project_cost" class="project__input">
-      </div>
-      <div class="project__name">
         <p class="project-margin project-font">Beneficiary School</p>
         <input type="text" name="beneficiary_school" id="beneficiary_school" class="project__input">
       </div>
@@ -78,7 +74,7 @@
       <p class="project-margin-top type-font">If you are here, you agree to solely fund this project. If not, <button class="btn btn__back"
           type="button" onclick="showProjectForm()"><i class="fas fa-arrow-left"></i> Go Back</button></p>
       <div class="project__cost">
-        <input type="checkbox" name="personal_cost_me" id="personal_cost_me" value=""> <p class="type-font"> Do you want us to cost you?</p>
+        <input type="checkbox" name="personal_cost_me" id="personal_cost_me" value="personal_cost_me"> <p class="type-font"> Do you want us to cost you?</p>
       </div>
       <div class="project__amount">
         <p class="type-font">If No, tell us how much you want to give</p>
@@ -91,7 +87,7 @@
       <p class="project-margin-top type-font">If you are here, the group agrees to collectively fund this project. If not,
         <button type="button" class="btn btn__back" onclick="showProjectForm()"><i class="fas fa-arrow-left"></i> Go Back</button></p>
       <div class="project__cost">
-        <input type="checkbox" name="group_cost_me" id="group_cost_me" value=""><p class="type-font"> Do you want us to cost you?</p>
+        <input type="checkbox" name="group_cost_me" id="group_cost_me" value="group_cost_me"><p class="type-font"> Do you want us to cost you?</p>
       </div>
       <div class="project__amount">
         <p class="type-font">If No, tell us how much you want to give</p>
@@ -105,15 +101,11 @@
         by the public. If not, <button type="button" class="btn btn__back" onclick="showProjectForm()"><i class="fas fa-arrow-left"></i>
           Go Back</button></p>
       <div class="project__cost">
-        <input type="checkbox" name="public_cost_me" id="public_cost_me" value=""> <p class="type-font"> Do you want us to cost you?</p>
+        <input type="checkbox" name="public_cost_me" id="public_cost_me" value="public_cost_me"> <p class="type-font"> Do you want us to cost you?</p>
       </div>
       <div class="project__amount">
         <p class="type-font">If No, tell us how much you want to give</p>
         <input type="text" name="public_amount_to_donate" id="public_amount_to_donate" class="project__input project__input--2">
-        <div class="project__amount__upload">
-          <img src="{{ asset('img/photo.svg') }}" alt="photo" class="project__amount__upload__pic">
-          <button type="button" class="btn btn__upload">Upload pictures</button>
-        </div>
       </div>
       <button type="button" class="btn btn__amount" onclick="showContactInfoForm()">Next <i class="fas fa-arrow-right"></i></button>
     </div>

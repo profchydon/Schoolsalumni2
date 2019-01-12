@@ -1,56 +1,9 @@
 //? For Smooth Scrolling Feature
 $(document).ready(function() {
 
-  $('#create_project_form').submit(function() {
-
-      // event.preventDefault();
-
-      const formData = {
-          "title" : $("#title").val(),
-          "description" : $("#description").val(),
-          "beneficiary_school" : $("#beneficiary_school").val(),
-          "address" : $("#address").val(),
-          "state" : $("#state").val(),
-          "lga" : $("#lga").val(),
-          "cost_me" : $("#cost_me").val(),
-          "amount_to_donate" : $("#amount_to_donate").val(),
-          "first_name" : $("#first_name").val(),
-          "last_name" : $("#last_name").val(),
-          "phone" : $("#phone").val(),
-          "email" : $("#email").val(),
-          "password" : $("#password").val(),
-      }
-
-      // console.log(formData);
-
-      const data = JSON.stringify(formData);
-
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "http://localhost:8000/create-user-project",
-        "method": "POST",
-        "headers": {
-          "Content-Type": "application/json",
-        },
-        "processData": false,
-        "data": data
-      }
-
-      // $.ajax(settings).done(function (response) {
-      //     if (response.message === "Update was successful") {
-      //         $('#edit-escort-message').append("Escort details updated successfully." );
-      //         location.reload();
-      //     }
-      // });
-
-  });
-
-
-
   //State and City Stuff
   $.ajax({
-          url: '/js/locations.json',
+          url: 'js/locations.json',
           type: 'GET',
           dataType: 'json'
       })

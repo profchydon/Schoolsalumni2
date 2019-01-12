@@ -43,20 +43,19 @@ class ProjectRepository
             }
 
             if (isset($request->personal_amount_to_donate)) {
-                $amount_to_donate = $request->personal_amount_to_donate;
+                $project_cost = $request->personal_amount_to_donate;
                 $category = "Personal";
             }
             if (isset($request->group_amount_to_donate)) {
-                $amount_to_donate = $request->group_amount_to_donate;
+                $project_cost = $request->group_amount_to_donate;
                 $category = "Group";
             }
             if (isset($request->public_amount_to_donate)) {
-                $amount_to_donate = $request->public_amount_to_donate;
+                $project_cost = $request->public_amount_to_donate;
                 $category = "Public";
             }
 
-            $project_cost = preg_replace("/[^0-9]/", "", $request->project_cost);
-            $amount_to_donate = preg_replace("/[^0-9]/", "", $amount_to_donate);
+            $project_cost = preg_replace("/[^0-9]/", "", $project_cost);
 
             $project = Project::create([
 
@@ -71,7 +70,6 @@ class ProjectRepository
               'amount_raised' => 0,
               'cost_me' => $cost_me,
               'category' => $category,
-              'amount_to_donate' => $amount_to_donate,
               'status' => 'Ongoing',
 
             ]);

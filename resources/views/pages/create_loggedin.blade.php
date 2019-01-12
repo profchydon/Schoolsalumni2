@@ -29,10 +29,6 @@
                 <textarea rows="3" cols="80" name="description" class="project__input" id="description"></textarea>
               </div>
               <div class="project__name">
-                <p class="project-margin project-font">Cost of the Project</p>
-                <input type="text" name="project_cost" id="project_cost" class="project__input">
-              </div>
-              <div class="project__name">
                 <p class="project-margin project-font">Beneficiary School</p>
                 <input type="text" name="beneficiary_school" id="beneficiary_school" class="project__input">
               </div>

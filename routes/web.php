@@ -34,6 +34,7 @@ Route::get('projects/sort' , 'ProjectController@sort');
 Route::get('projects/ongoing-projects' , 'ProjectController@ongoingProjects')->name('ongoing-projects');
 Route::get('projects/completed-projects' , 'ProjectController@completedProjects')->name('completed-projects');
 Route::get('project/funding/{id}' , 'ProjectController@getProjectForFunding')->name('fund-projects');
+Route::get('project/funding/success' , 'ProjectController@saveFundingTransactionDetails');
 
 Route::view('imageupload','pages.imageupload');
 Route::post('image-view','ProjectController@uploadImage');
