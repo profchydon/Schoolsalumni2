@@ -17,7 +17,7 @@ class ProjectController extends Controller
     public function __construct(ProjectRepository $project)
     {
         $this->project = $project;
-        $this->middleware('auth', ['except' => ['all' , 'getAproject', 'saveFundingTransactionDetails', 'getProjectForFunding', 'sort', 'ongoingProjects', 'completedProjects', 'uploadImage', 'insertImage']]);
+        $this->middleware('auth', ['except' => ['all' , 'getSchool', 'getSchoolProjects', 'getAproject', 'saveFundingTransactionDetails', 'getProjectForFunding', 'sort', 'ongoingProjects', 'completedProjects', 'uploadImage', 'insertImage']]);
     }
 
     public function all()

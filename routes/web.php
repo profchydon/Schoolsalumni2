@@ -16,8 +16,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::view('create_loggedin' , 'pages.create_loggedin')->name('create_loggedin');
     Route::post('create-user-project-loggedin' , 'UserController@createUserProjectLoggedIn')->name('create-user-project-loggedin');
     Route::get('dashboard' , 'UserController@dashboard')->name('dashboard');
-    Route::get('school/{school}/projects' , 'ProjectController@getSchoolProjects')->name('school-projects');
-
 });
 
 Route::view('' , 'pages.index')->name('index');
@@ -27,6 +25,7 @@ Route::view('about' , 'pages.about')->name('about');
 Route::view('contact' , 'pages.contact')->name('contact');
 Route::view('create' , 'pages.create')->name('create');
 
+Route::get('school/{school}/projects' , 'ProjectController@getSchoolProjects')->name('school-projects');
 Route::get('search' , 'ProjectController@getSchool')->name('search');
 Route::get('projects/all' , 'ProjectController@all')->name('all-projects');
 Route::get('projects/project/{id}' , 'ProjectController@getAproject');

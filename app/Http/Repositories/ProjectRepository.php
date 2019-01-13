@@ -104,6 +104,14 @@ class ProjectRepository
 
           ]);
 
+          $project = Project::findorfail($request->project_id);
+
+          $amount_raised = $project->amount_raised + $request->amount;
+
+          $project->update([
+              'amount_raised' => $amount_raised,
+          ]);
+
           if ($funding) {
               return 'Transaction saved successfully';
           }else {

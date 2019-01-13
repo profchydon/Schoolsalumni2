@@ -25,10 +25,20 @@
           <input
             type="email"
             name="email"
-            value="{{ Auth::user()->email }}"
+            <?php
+            if (Auth::user()) {
+            ?>
+                value="{{ Auth::user()->email }}"
+                readonly
+            <?php
+            }else {
+            ?>
+                value=""
+            <?php
+            }
+            ?>
             id="email_1"
             class="project__contact__box__input project__contact__box__input--3"
-            readonly
           />
         </div>
         <div class="project__contact__box project__contact__box--2">
@@ -60,9 +70,19 @@
               type="text"
               name="name"
               id="name_2"
-              value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}"
+              <?php
+              if (Auth::user()) {
+              ?>
+                  value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}"
+                  readonly
+              <?php
+              }else {
+              ?>
+                  value=""
+              <?php
+              }
+              ?>
               class="project__contact__box__input project__contact__box__input--3"
-              readonly
             />
           </div>
           <div class="project__contact__box project__contact__box--2">
@@ -71,9 +91,19 @@
               type="email"
               name="email"
               id="email_2"
-              value="{{ Auth::user()->email }}"
+              <?php
+              if (Auth::user()) {
+              ?>
+                  value="{{ Auth::user()->email}}"
+                  readonly
+              <?php
+              }else {
+              ?>
+                  value=""
+              <?php
+              }
+              ?>
               class="project__contact__box__input project__contact__box__input--3"
-              readonly
             />
           </div>
           <div class="project__contact__box project__contact__box--2">
