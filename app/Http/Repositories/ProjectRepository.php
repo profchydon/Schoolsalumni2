@@ -225,4 +225,30 @@ class ProjectRepository
       return $data;
     }
 
+    public function getSchoolByWildCard($school)
+    {
+      $schools = array();
+      $school_project = array();
+      $projects = Project::where('beneficiary_school' , 'like' , $school . '%')->pluck('beneficiary_school');
+
+      foreach ($projects as $key => $school) {
+
+        if (in_array($school , $schools) === false) {
+            array_push($schools , $school);
+        }
+      }
+
+      foreach ($schools as $key => $school) {
+          $fetch = Project::where('beneficiary_school' , $school)->get();
+          $count = count($fetch);
+          $school_project[$school] = $count;
+          $school_address[$school] = $fetch[0]['address'].", ".$fetch[0]['state']." State.";
+      }
+
+      $data['collection'] = (new Collection($school_project))->paginate(20);
+      $data['address'] = $school_address;
+
+      return $data;
+    }
+
 }

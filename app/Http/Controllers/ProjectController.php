@@ -104,9 +104,14 @@ class ProjectController extends Controller
       return view('pages.schoolprojects' , ['projects' => $projects]);
   }
 
-  public function getSchool()
+  public function getSchool(Request $request)
   {
-      $schools = $this->project->getSchool();
+
+      if (isset($_GET['school']) && empty($_GET['school']) === false) {
+        $schools = $this->project->getSchoolByWildCard($_GET['school']);
+      }else {
+          $schools = $this->project->getSchool();
+      }
 
       return view('pages.search' , ['schools' => $schools]);
   }

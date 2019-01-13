@@ -17,9 +17,9 @@
   <div class="center-text">
     <p class="title-margin search-title">Available Projects</p>
   </div>
-  <form action="#" class="search__search">
-    <input type="text" class="search__search__input" placeholder="Search School">
-    <button class="btn btn__search">
+  <form action="search" class="search__search" method="get">
+    <input type="text" class="search__search__input" name="school" placeholder="Search School">
+    <button class="btn btn__search" type="submit">
       <svg class="search__search__icon">
         <use xlink:href="{{ asset('/img/sprite.svg#icon-magnifying-glass') }}"></use>
       </svg>
