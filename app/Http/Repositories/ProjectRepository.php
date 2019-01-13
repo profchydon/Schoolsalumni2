@@ -251,4 +251,18 @@ class ProjectRepository
       return $data;
     }
 
+    public function completeProject($id)
+    {
+        $project = Project::findorfail($id);
+
+        if ($project->user_id == Auth::user()->id) {
+            $project->update([
+                'status' => 'Completed',
+            ]);
+            return true;
+        }else {
+          return false;
+        }
+    }
+
 }

@@ -4,6 +4,8 @@
 
 <section class="inner">
 
+  @include('_messages')
+
  <div class="inner__title">
    <p class="inner-title">{{ $project->title }}</p>
    @if ($project->status == "Ongoing")
@@ -58,9 +60,17 @@
    </div>
  </div>
 
- <a href="/projects/all" id="back-button" class="btn btn__progress"><i class="fas fa-arrow-left"></i> Back </a>
+ <a href="/projects/all" id="back-button" class="btn btn__progress"><i class="fas fa-arrow-left"></i> Go Back </a>
 
-  <a href="/project/funding/{{ $project->id }}" id="back-button" class="btn btn__progress"><i class="fas fa-money-check"></i> Fund this project </a>
+ @if($project->status == "Ongoing" )
+    <a href="/project/funding/{{ $project->id }}" id="sub-button" class="btn btn__progress"> Fund this project </a>
+
+    @if(Auth::user()->id == $project->user_id )
+       <a href="/project/complete/{{ $project->id }}" id="sub-button" class="btn btn__progress"> Mark as Completed </a>
+    @endif
+    
+ @endif
+
 
 </section>
 

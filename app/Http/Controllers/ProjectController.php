@@ -104,6 +104,18 @@ class ProjectController extends Controller
       return view('pages.schoolprojects' , ['projects' => $projects]);
   }
 
+  public function completeProject($id)
+  {
+      $project = $this->project->completeProject($id);
+
+      if ($project == true) {
+          return redirect()->back()->with('message' , 'This project has been successfully completed');
+      }else {
+          return redirect()->back()->with('error' , 'Only Project owners can mark project as completed');
+      }
+
+  }
+
   public function getSchool(Request $request)
   {
 

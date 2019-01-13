@@ -16,6 +16,7 @@ p#login-error-message {
     padding: 10px;
     text-align: center;
     border-radius: 3px;
+    margin: 15px 0px;
 }
 li.page-item.active {
     background-color: #E4AE48;
@@ -37,6 +38,11 @@ a.page-link {
     font-weight: 600;
     outline: 0;
     text-decoration: none;
+}
+a#sub-button {
+    font-size: 1.8rem;
+    padding: 1rem 5.6rem;
+    margin-left: 2%;
 }
 a#projects-b {
     padding: 1rem;
