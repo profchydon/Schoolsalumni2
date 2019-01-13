@@ -210,7 +210,9 @@ class ProjectRepository
       // var_dump($school_project);
       // die();
 
-      return $school_project;
+      $collection = (new Collection($school_project))->paginate(20);
+
+      return $collection;
     }
 
 }

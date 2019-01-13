@@ -25,7 +25,7 @@
       </svg>
     </button>
   </form>
-  
+
   <div class="search__boxes">
 
     @foreach($schools as $key => $school)
@@ -40,6 +40,8 @@
       </div>
     </div>
     @endforeach
+
+    {{ $schools->links() }}
 
   </div>
 
