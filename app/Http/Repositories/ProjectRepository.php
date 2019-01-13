@@ -28,19 +28,22 @@ class ProjectRepository
 
             $cost_me = 0;
             $category = "Personal";
-            $amount_to_donate = "0";
+            $project_cost = 0;
 
             if (isset($request->personal_cost_me)) {
                 $cost_me = 1;
                 $category = "Personal";
+                $project_cost = 0;
             }
             elseif (isset($request->group_cost_me)) {
                 $cost_me = 1;
                 $category = "Group";
+                $project_cost = 0;
             }
             elseif (isset($request->public_cost_me)) {
                 $cost_me = 1;
                 $category = "Public";
+                $project_cost = 0;
             }
 
             if (isset($request->personal_amount_to_donate)) {
@@ -213,14 +216,13 @@ class ProjectRepository
           $fetch = Project::where('beneficiary_school' , $school)->get();
           $count = count($fetch);
           $school_project[$school] = $count;
+          $school_address[$school] = $fetch[0]['address'].", ".$fetch[0]['state']." State.";
       }
 
-      // var_dump($school_project);
-      // die();
+      $data['collection'] = (new Collection($school_project))->paginate(20);
+      $data['address'] = $school_address;
 
-      $collection = (new Collection($school_project))->paginate(20);
-
-      return $collection;
+      return $data;
     }
 
 }

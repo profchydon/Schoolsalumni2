@@ -61,9 +61,11 @@ class UserController extends Controller
       if ($createProject) {
 
           if ($createProject->category == "Group") {
+
             Session::put('project_id' , $createProject->id);
             Session::put('project_title' , $createProject->title);
             return view('pages.imageupload');
+            
           }else {
             return redirect()->back()->with('message', 'Congrats... Your project was succesfully created');
           }

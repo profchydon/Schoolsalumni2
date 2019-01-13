@@ -28,12 +28,12 @@
 
   <div class="search__boxes">
 
-    @foreach($schools as $key => $school)
+    @foreach($schools['collection'] as $key => $school)
     <div class="search__box">
       <div class="search__box__items">
         <div class="search__box__text">
           <p class="box-font box-font-title"> {{ $key }}</p>
-          <p class="box-font">Ikeja, Lagos</p>
+          <p class="box-font">{{ $schools['address'][$key] }}</p>
         </div>
         <a href="school/{{ $key }}/projects" class="btn btn__click"> {{ $school }} Projects </a>
 
@@ -41,7 +41,7 @@
     </div>
     @endforeach
 
-    {{ $schools->links() }}
+    {{ $schools['collection']->links() }}
 
   </div>
 
