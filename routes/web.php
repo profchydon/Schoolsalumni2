@@ -25,9 +25,9 @@ Route::view('login' , 'pages.login')->name('login');
 Route::view('register' , 'pages.register')->name('register');
 Route::view('about' , 'pages.about')->name('about');
 Route::view('contact' , 'pages.contact')->name('contact');
-Route::view('search' , 'pages.search')->name('search');
 Route::view('create' , 'pages.create')->name('create');
 
+Route::get('search' , 'ProjectController@getSchool')->name('search');
 Route::get('projects/all' , 'ProjectController@all')->name('all-projects');
 Route::get('projects/project/{id}' , 'ProjectController@getAproject');
 Route::get('projects/sort' , 'ProjectController@sort');

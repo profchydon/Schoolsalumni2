@@ -118,26 +118,26 @@ class ProjectRepository
 
     public function all()
     {
-        $projects = Project::simplePaginate(8);
+        $projects = Project::paginate(8);
 
         return $projects;
     }
 
     public function sort($parameter)
     {
-        $projects = Project::where('status' , $parameter)->simplePaginate(8);
+        $projects = Project::where('status' , $parameter)->paginate(8);
         return $projects;
     }
 
     public function completedProjects()
     {
-        $projects = Project::where('status' , 'Completed')->simplePaginate(8);
+        $projects = Project::where('status' , 'Completed')->paginate(8);
         return $projects;
     }
 
     public function ongoingProjects()
     {
-        $projects = Project::where('status' , 'Ongoing')->simplePaginate(8);
+        $projects = Project::where('status' , 'Ongoing')->paginate(8);
         return $projects;
     }
 
@@ -188,9 +188,10 @@ class ProjectRepository
         return $project;
     }
 
-    public function getSchool($value='')
+    public function getSchool()
     {
       $schools = array();
+      $school_project = array();
       $projects = Project::all()->pluck('beneficiary_school');
 
       foreach ($projects as $key => $school) {
@@ -199,6 +200,17 @@ class ProjectRepository
             array_push($schools , $school);
         }
       }
+
+      foreach ($schools as $key => $school) {
+          $fetch = Project::where('beneficiary_school' , $school)->get();
+          $count = count($fetch);
+          $school_project[$school] = $count;
+      }
+
+      // var_dump($school_project);
+      // die();
+
+      return $school_project;
     }
 
 }

@@ -5,6 +5,11 @@ p#login-error-message {
     text-align: center;
     border-radius: 3px;
 }
+.btn__click {
+    background-color: #006DFF !important;
+    font-size: 1.4rem;
+    padding: 0.6rem 3.4rem;
+}
 .alert.alert-success.text-center {
     color: green;
     background: #a3bea3;
@@ -12,17 +17,25 @@ p#login-error-message {
     text-align: center;
     border-radius: 3px;
 }
+li.page-item.active {
+    background-color: #E4AE48;
+    border-radius: 0.8rem;
+    color: #fff;
+}
 li.page-item {
-    margin: 0px 30px;
-    padding: 6px;
-    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    color: #000;
+    float: left;
+    outline: 0;
+    margin: 0.4%;
+    padding: 4px 13px;
     text-decoration: none;
 }
 a.page-link {
     color: #000;
     font-weight: 600;
     outline: 0;
-    padding: 1.1rem 1.5rem;
     text-decoration: none;
 }
 a#projects-b {

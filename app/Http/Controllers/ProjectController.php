@@ -104,6 +104,13 @@ class ProjectController extends Controller
       return view('pages.schoolprojects' , ['projects' => $projects]);
   }
 
+  public function getSchool()
+  {
+      $schools = $this->project->getSchool();
+
+      return view('pages.search' , ['schools' => $schools]);
+  }
+
   public function getProjectForFunding($id)
   {
       $project = $this->project->getProjectForFunding($id);
