@@ -26,6 +26,12 @@
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/index.js') }}"></script>
 
+<script>
+    $(document).ready(function () {
+        
+    });
+</script>
+
 
 </body>
 

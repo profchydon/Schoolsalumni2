@@ -32,7 +32,8 @@
     <div class="search__box">
       <div class="search__box__items">
         <div class="search__box__text">
-          <p class="box-font box-font-title"> {{ $key }}</p>
+          <a href="school/{{ $key }}/projects" class="search__box_header"> <p class="box-font box-font-title"> {{ $key }}</p> </a>
+
           <p class="box-font">{{ $schools['address'][$key] }}</p>
         </div>
         <a href="school/{{ $key }}/projects" class="btn btn__click"> {{ $school }} Projects </a>

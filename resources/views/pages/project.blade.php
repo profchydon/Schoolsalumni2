@@ -63,12 +63,14 @@
  <a href="/projects/all" id="back-button" class="btn btn__progress"><i class="fas fa-arrow-left"></i> Go Back </a>
 
  @if($project->status == "Ongoing" )
+
     <a href="/project/funding/{{ $project->id }}" id="sub-button" class="btn btn__progress"> Fund this project </a>
 
-    @if(Auth::user()->id == $project->user_id )
-       <a href="/project/complete/{{ $project->id }}" id="sub-button" class="btn btn__progress"> Mark as Completed </a>
+    @if(Auth::user())
+      @if(Auth::user()->id == $project->user_id )
+         <a href="/project/complete/{{ $project->id }}" id="sub-button" class="btn btn__progress"> Mark as Completed </a>
+      @endif
     @endif
-    
  @endif
 
 
