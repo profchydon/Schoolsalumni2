@@ -73,7 +73,7 @@
                 {{ $project->description }}
               </p>
             </div>
-            <a href="/projects/project/{{$project->id}}" id="view-report" class="btn btn__project">Fund  Project</a>
+            <a href="/projects/project/{{$project->id}}" id="view-report" class="btn btn__project">View Report</a>
           </div>
         </div>
 

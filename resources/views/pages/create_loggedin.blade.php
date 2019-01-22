@@ -22,11 +22,13 @@
                 <p class="project-margin project-font">Project Title</p>
                 <input type="text" name="title" id="title" class="project__input">
               </div>
+            
               <div class="project__name">
                 <p class="project-margin project-font">Project Description</p>
                 <p class="project-font-cap">Each project should be a stand alone project. Example - <span class="project-font-cap--red">Do:
                   </span>Fans. <span class="project-margin-left   project-font-cap--green">Don’t: </span>Fans, Television, Chairs.</p>
-                <textarea rows="3" cols="80" name="description" class="project__input" id="description"></textarea>
+                <textarea rows="3" cols="80" name="description" class="project__input" id="description" maxlength="440"></textarea>
+                <p class="project-font-cap"><span id="rchars">440</span> Character(s) Remaining</p>
               </div>
               <div class="project__name">
                 <p class="project-margin project-font">Beneficiary School</p>
