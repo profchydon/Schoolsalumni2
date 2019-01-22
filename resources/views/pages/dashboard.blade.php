@@ -37,45 +37,182 @@
               </p>
 
               <div class="owl-carousel owl-theme">
-
-                  @foreach ($projects as $project)
-
-                  <div class="item">
-                    <div class="dashboard__box">
-                      <div class="dashboard__box__image">
-                        <img
-                          src="img/projects/images/{{$project->image1}}"
-                          alt="Bad-school"
-                          class="dashboard__box__img"
-                        />
-                      </div>
-                      <div class="dashboard__box__details">
-                        <h5 class="dash-font dash-font-header">
-                          {{ $project->title }}
-                        </h5>
-                        <div class="dashboard__box__amount">
-                          <p class="dash-font dash-font-title">Amount needed:</p>
-                          <p class="dash-font">NGN {{ $project->project_cost }}</p>
-                        </div>
-                        <div class="dashboard__box__amount">
-                          <p class="dash-font dash-font-title">Amount raised:</p>
-                          <p class="dash-font">NGN {{ $project->amount_raised }}</p>
-                        </div>
-
-                        <div class="dashboard__box__amount">
-                          <p class="dash-font dash-font-title">Amount left:</p>
-                          <?php $amount_left = $project->project_cost - $project->amount_raised ?>
-                          <p class="dash-font">NGN {{ $amount_left }}</p>
-                        </div>
-                        <a href="/projects/project/{{$project->id}}" id="projects-b" class="btn btn__progress">View details</a>
-
-                      </div>
-                    </div>
+            <div class="item">
+              <div class="dashboard__box">
+                <div class="dashboard__box__image">
+                  <img
+                    src="assets/img/bad-school.jpg"
+                    alt="Bad-school"
+                    class="dashboard__box__img"
+                  />
+                </div>
+                <div class="dashboard__box__details">
+                  <h5 class="dash-font dash-font-header">
+                    Ruby Springfield College
+                  </h5>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount needed:</p>
+                    <p class="dash-font">Nil</p>
                   </div>
-
-                  @endforeach
-
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount left:</p>
+                    <p class="dash-font">NGN 10,000,000</p>
+                  </div>
+                  <button class="btn btn__progress">View details</button>
+                </div>
               </div>
+            </div>
+            <div class="item">
+              <div class="dashboard__box">
+                <div class="dashboard__box__image">
+                  <img
+                    src="assets/img/bad-school.jpg"
+                    alt="Bad-school"
+                    class="dashboard__box__img"
+                  />
+                </div>
+                <div class="dashboard__box__details">
+                  <h5 class="dash-font dash-font-header">
+                    Ruby Springfield College
+                  </h5>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount needed:</p>
+                    <p class="dash-font">Nil</p>
+                  </div>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount left:</p>
+                    <p class="dash-font">NGN 10,000,000</p>
+                  </div>
+                  <button class="btn btn__progress">View details</button>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="dashboard__box">
+                <div class="dashboard__box__image">
+                  <img
+                    src="assets/img/bad-school.jpg"
+                    alt="Bad-school"
+                    class="dashboard__box__img"
+                  />
+                </div>
+                <div class="dashboard__box__details">
+                  <h5 class="dash-font dash-font-header">
+                    Ruby Springfield College
+                  </h5>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount needed:</p>
+                    <p class="dash-font">Nil</p>
+                  </div>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount left:</p>
+                    <p class="dash-font">NGN 10,000,000</p>
+                  </div>
+                  <button class="btn btn__progress">View details</button>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="dashboard__box">
+                <div class="dashboard__box__image">
+                  <img
+                    src="assets/img/bad-school.jpg"
+                    alt="Bad-school"
+                    class="dashboard__box__img"
+                  />
+                </div>
+                <div class="dashboard__box__details">
+                  <h5 class="dash-font dash-font-header">
+                    Ruby Springfield College
+                  </h5>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount needed:</p>
+                    <p class="dash-font">Nil</p>
+                  </div>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount left:</p>
+                    <p class="dash-font">NGN 10,000,000</p>
+                  </div>
+                  <button class="btn btn__progress">View details</button>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="dashboard__box">
+                <div class="dashboard__box__image">
+                  <img
+                    src="assets/img/bad-school.jpg"
+                    alt="Bad-school"
+                    class="dashboard__box__img"
+                  />
+                </div>
+                <div class="dashboard__box__details">
+                  <h5 class="dash-font dash-font-header">
+                    Ruby Springfield College
+                  </h5>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount needed:</p>
+                    <p class="dash-font">Nil</p>
+                  </div>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount left:</p>
+                    <p class="dash-font">NGN 10,000,000</p>
+                  </div>
+                  <button class="btn btn__progress">View details</button>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="dashboard__box">
+                <div class="dashboard__box__image">
+                  <img
+                    src="assets/img/bad-school.jpg"
+                    alt="Bad-school"
+                    class="dashboard__box__img"
+                  />
+                </div>
+                <div class="dashboard__box__details">
+                  <h5 class="dash-font dash-font-header">
+                    Ruby Springfield College
+                  </h5>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount needed:</p>
+                    <p class="dash-font">Nil</p>
+                  </div>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount left:</p>
+                    <p class="dash-font">NGN 10,000,000</p>
+                  </div>
+                  <button class="btn btn__progress">View details</button>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="dashboard__box">
+                <div class="dashboard__box__image">
+                  <img
+                    src="assets/img/bad-school.jpg"
+                    alt="Bad-school"
+                    class="dashboard__box__img"
+                  />
+                </div>
+                <div class="dashboard__box__details">
+                  <h5 class="dash-font dash-font-header">
+                    Ruby Springfield College
+                  </h5>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount needed:</p>
+                    <p class="dash-font">Nil</p>
+                  </div>
+                  <div class="dashboard__box__amount">
+                    <p class="dash-font dash-font-title">Amount left:</p>
+                    <p class="dash-font">NGN 10,000,000</p>
+                  </div>
+                  <button class="btn btn__progress">View details</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
             </div>
           </div>

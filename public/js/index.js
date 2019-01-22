@@ -52,6 +52,55 @@ $(document).ready(function() {
   });
 });
 
+
+
+//? For charater limit
+// <![Description[
+$(function () {
+  $(".description-font").each(function (i) {
+    len = $(this).text().length;
+    if (len > 440) {
+      $(this).text(
+        $(this)
+          .text()
+          .substr(0, 440) + "..."
+      );
+    }
+  });
+});
+      // ]]>
+// <![Profile[
+$(function () {
+  $(".profile-font").each(function(i) {
+    len = $(this).text().length;
+    if (len > 17) {
+      $(this).text($(this)
+          .text()
+          .substr(0, 17) + "...");
+    }
+  });
+});
+      // ]]>
+// <![Profile[
+$(function () {
+  $(".box-font-title").each(function(i) {
+    len = $(this).text().length;
+    if (len > 45) {
+      $(this).text($(this)
+          .text()
+          .substr(0, 45) + "...");
+    }
+  });
+});
+      // ]]>
+
+//? To show charater limit in textarea
+var maxLength = 440;
+$("textarea").keyup(function() {
+  var textlen = maxLength - $(this).val().length;
+  $("#rchars").text(textlen);
+});
+
 // ? For pagination
 var header = document.getElementById("myDIV");
 var btns = header.getElementsByClassName("btns");
@@ -284,6 +333,7 @@ function showSubmitForm() {
   $("#div-3").css("display", "none");
   $("#div-4").css("display", "none");
   $("#div-5").css("display", "none");
+  $("#project_header").css("display", "none");
   $("#div-6").css("display", "block");
 }
 

@@ -21,7 +21,14 @@
    @endif
  </div>
 
- <img srcset="/img/projects/images/{{$project->image1}}" alt="Project Image" class="inner__image">
+ @if (empty($project->image1))
+   <img srcset="/img/Banner2.jpg" alt="Project Image" class="inner__image">
+ @else
+   <img srcset="/img/projects/images/{{$project->image1}}" alt="Project Image" class="inner__image">
+ @endif
+
+
+
  <div class="inner__info">
    <p class="inner-font inner-font-title">Beneficiary School</p>
    <p class="inner-font">{{ $project->beneficiary_school }}</p>
@@ -60,18 +67,27 @@
    </div>
  </div>
 
- <a href="/projects/all" id="back-button" class="btn btn__progress"><i class="fas fa-arrow-left"></i> Go Back </a>
+ <div class="inner__buttons">
 
- @if($project->status == "Ongoing" )
+       <a href="/projects/all" id="back-button" class="btn btn__gallery"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back</a>
 
-    <a href="/project/funding/{{ $project->id }}" id="sub-button" class="btn btn__progress"> Fund this project </a>
+       @if($project->status == "Ongoing" )
 
-    @if(Auth::user())
-      @if(Auth::user()->id == $project->user_id )
-         <a href="/project/complete/{{ $project->id }}" id="sub-button" class="btn btn__progress"> Mark as Completed </a>
-      @endif
-    @endif
- @endif
+          <a href="/project/funding/{{ $project->id }}" id="sub-button" class="btn btn__gallery"><i class="fas fa-credit-card"></i>&nbsp;&nbsp; Pay</a>
+
+          @if(Auth::user())
+            @if(Auth::user()->id == $project->user_id )
+               <a href="/project/complete/{{ $project->id }}" id="sub-button" class="btn btn__gallery"><i class="fas fa-tick"></i>&nbsp;&nbsp; Complete</a>
+            @endif
+          @endif
+       @endif
+
+
+ </div>
+
+
+
+
 
 
 </section>

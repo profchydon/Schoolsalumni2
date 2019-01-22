@@ -5,10 +5,10 @@
 <section class="project">
 
   <div class="project__logo">
-    <h1 class="logo-font">logo</h1>
+      <img src="{{ asset('img/Logo.svg') }}" alt="Logo" class="product__logo" />
   </div>
 
-  <div class="project__header">
+  <div class="project__header" id="project_header">
     @if(Auth::user())
       <button type="button" class="blue-bg project__header__create" onclick="window.location.href='{{ route('create_loggedin') }}'">CREATE A PROJECT</button>
     @else
@@ -32,7 +32,8 @@
         <p class="project-margin project-font">Project Description</p>
         <p class="project-font-cap">Each project should be a stand alone project. Example - <span class="project-font-cap--red">Do:
           </span>Fans. <span class="project-margin-left   project-font-cap--green">Don’t: </span>Fans, Television, Chairs.</p>
-        <textarea rows="3" cols="80" name="description" class="project__input" id="description"></textarea>
+        <textarea rows="3" cols="80" name="description" class="project__input" id="description" maxlength="440"></textarea>
+        <p class="project-font-cap"><span id="rchars">440</span> Character(s) Remaining</p>
       </div>
       <div class="project__name">
         <p class="project-margin project-font">Beneficiary School</p>

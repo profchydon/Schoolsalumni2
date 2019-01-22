@@ -3,8 +3,8 @@
 @include('layouts.nav')
 
 <section class="search">
-  <div class="search__logo">
-    <h1 class="logo-font">logo</h1>
+  <div class="project__logo">
+      <img src="{{ asset('img/Logo.svg') }}" alt="Logo" class="product__logo" />
   </div>
   <div class="project__header project__header--2">
     @if(Auth::user())

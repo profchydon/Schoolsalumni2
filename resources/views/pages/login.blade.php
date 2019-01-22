@@ -4,7 +4,7 @@
 
   <section class="project">
     <div class="project__logo">
-      <h1 class="logo-font">logo</h1>
+        <img src="{{ asset('img/Logo.svg') }}" alt="Logo" class="product__logo" />
     </div>
 
     <div class="project__account">

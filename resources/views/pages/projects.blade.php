@@ -39,11 +39,20 @@
 
               </div>
               <div class="school__box__overview">
-                <img
-                  src="/img/projects/images/{{$project->image1}}"
-                  alt="Class"
-                  class="school__box__pic"
-                />
+                @if (empty($project->image1))
+                  <img
+                    src="/img/Banner2.jpg"
+                    alt="Class"
+                    class="school__box__pic"
+                  />
+                @else
+                  <img
+                    src="/img/projects/images/{{$project->image1}}"
+                    alt="Class"
+                    class="school__box__pic"
+                  />
+                @endif
+
                 <div class="school__box__text school__box__text--2">
                   <div class="school__box__text__amount school__box__text__amount--2">
                     <p class="info-font info-font-title">Beneficiary School</p>
@@ -64,7 +73,7 @@
                 {{ $project->description }}
               </p>
             </div>
-            <a href="/projects/project/{{$project->id}}" id="view-report" class="btn btn__progress">View Report</a>
+            <a href="/projects/project/{{$project->id}}" id="view-report" class="btn btn__project">Fund  Project</a>
           </div>
         </div>
 

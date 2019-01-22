@@ -3,7 +3,9 @@
 @include('layouts.nav')
 
 <section class="project">
-    <div class="project__logo"><h1 class="logo-font">logo</h1></div>
+  <div class="project__logo">
+      <img src="{{ asset('img/Logo.svg') }}" alt="Logo" class="product__logo" />
+  </div>
 
     <div class="project__header" id="p-1">
       <button class="blue-bg project__header__create" id="h-1" onclick="showRemainForm()"> REMAIN ANONYMOUS </button>

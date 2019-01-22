@@ -17,24 +17,31 @@
   <section class="problem">
     <div class="problem__statement">
       <div class="problem__text">
-        <h4 class="landing-font landing-font-header">
-          Imagine you couldn't read anything on this page. Imagine walking down the street, not being able to read
-          signs or being able to add up your wages.<span class="orange-color"> Where would you be today?</span>
-        </h4>
-        <p class="land-margin landing-font">
-          Public high schools in Nigeria have practically collapsed over the years because of poor funding leaving
-          millions of children out of school as well as receiving poor education. Nigeria has the highest number of
-          children out of school in the world. 80% of Nigerian children who complete primary school cannot read.
-        </p>
-        <p class="land-margin2 landing-font">
-          Make a donation today to not only give children the chance to go to school, but also save their lives and protect their childhoods.
-        </p>
-      </div>
-
+          <p class="landing-font">
+            Majority of students in Nigeria attend public schools. It is rather
+            disheartening that most of the children who are in these schools are
+            not learning. There is a massive learning crisis and all education
+            indices are poor: learning outcomes, literacy levels etc. and even
+            after 6 years of primary education, majority cannot read and write.
+          </p>
+          <p class="land-margin landing-font"></p>
+          <p class="land-margin2 landing-font">
+            This however was the not the case many years ago as majority of
+            today’s leaders are products of public education. This clearly shows
+            that something is definitely missing in the public school system and
+            considering the importance of public education in Nigeria, there is
+            radical and desperate need to restore the lost glory in this system.
+          </p>
+          <h4 class="land-margin2 landing-font landing-font-header">
+            The journey starts <span class="orange-color">now!</span>
+          </h4>
+        </div>
     </div>
   </section>
   <section class="product">
-    <h1 class="logo-font" style="margin: 8% 0;">logo</h1>
+    <div class="project__logo">
+        <img src="{{ asset('img/Logo.svg') }}" alt="Logo" class="product__logo" />
+    </div>
     <div class="product__title">
       <p class="landing-font landing-font-title">What We Do</p>
       <div class="product__title__line"></div>
