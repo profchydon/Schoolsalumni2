@@ -64,9 +64,9 @@
       <div class="project__category">
         <p class="project-margin project-font">Category of Project</p>
         <div class="project__category__buttons">
-          <button type="button" class="btn btn__category" onclick="showPersonalForm()">Personal</button>
-          <button type="button" class="btn btn__category" onclick="showGroupForm()">Group</button>
-          <button type="button" class="btn btn__category" onclick="showPubicForm()">Public</button>
+          <button type="button" class="btn btn__category" onclick="showPersonalForm()" id="personal_button">Personal</button>
+          <button type="button" class="btn btn__category" onclick="showGroupForm()" id="group_button">Group</button>
+          <button type="button" class="btn btn__category" onclick="showPubicForm()" id="public_button">Public</button>
         </div>
       </div>
     </div>

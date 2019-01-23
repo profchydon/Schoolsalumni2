@@ -27,6 +27,57 @@
 <script src="{{ asset('js/index.js') }}"></script>
 
 <script>
+
+
+    var projectTitle, projectDescription, beneficiarySchool, address, state, city;
+
+    var publicButton = document.querySelector('#public_button');
+    var groupButton = document.querySelector('#group_button');
+    var personalButton = document.querySelector('#personal_button');
+
+    publicButton.disabled = true;
+    publicButton.style.backgroundColor = 'gray';
+    groupButton.disabled = true;
+    groupButton.style.backgroundColor = 'gray';
+    personalButton.disabled = true;
+    personalButton.style.backgroundColor = 'gray';
+
+    document.querySelector('#create_account_button').style.backgroundColor = 'gray';
+
+    projectTitle = document.querySelector('#title').value;
+    projectDescription = document.querySelector('#description').value;
+    beneficiarySchool = document.querySelector('#beneficiary_school').value;
+    address = document.querySelector('#address').value;
+    state = document.querySelector('#state').value;
+    lga = document.querySelector('#lga').value;
+
+    document.querySelector('#lga').addEventListener('change' , function () {
+
+      projectTitle = document.querySelector('#title').value;
+      projectDescription = document.querySelector('#description').value;
+      beneficiarySchool = document.querySelector('#beneficiary_school').value;
+      address = document.querySelector('#address').value;
+      state = document.querySelector('#state').value;
+      lga = document.querySelector('#lga').value;
+
+      if ( (projectTitle == "") || (projectDescription == "") || (beneficiarySchool == "") || (address == "") || (state == null) || (lga == null) ) {
+          publicButton.disabled = true;
+          publicButton.style.backgroundColor = 'gray';
+          groupButton.disabled = true;
+          groupButton.style.backgroundColor = 'gray';
+          personalButton.disabled = true;
+          personalButton.style.backgroundColor = 'gray';
+      }else if ( (projectTitle != "") && (projectDescription != "") && (beneficiarySchool != "") && (address != "") && (state != null) && (lga != null) ) {
+          publicButton.disabled = false;
+          publicButton.style.backgroundColor = '#006DFF';
+          groupButton.disabled = false;
+          groupButton.style.backgroundColor = '#006DFF';
+          personalButton.disabled = false;
+          personalButton.style.backgroundColor = '#006DFF';
+      }
+
+    });
+
     document.querySelector('#create_account_button').disabled = true;
     document.querySelector('#create_account_button').style.backgroundColor = 'gray';
 
@@ -45,6 +96,8 @@
             document.querySelector('#create_account_button').style.backgroundColor = '#006DFF';
         }
     });
+
+
 </script>
 
 

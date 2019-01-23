@@ -75,20 +75,10 @@
 
           <a href="/project/funding/{{ $project->id }}" id="sub-button" class="btn btn__gallery"><i class="fas fa-credit-card"></i>&nbsp;&nbsp; Pay</a>
 
-          @if(Auth::user())
-            @if(Auth::user()->id == $project->user_id )
-               <a href="/project/complete/{{ $project->id }}" id="sub-button" class="btn btn__gallery"><i class="fas fa-tick"></i>&nbsp;&nbsp; Complete</a>
-            @endif
-          @endif
        @endif
 
 
  </div>
-
-
-
-
-
 
 </section>
 
