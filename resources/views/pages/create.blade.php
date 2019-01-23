@@ -147,8 +147,10 @@
         <div class="project__password">
           <p class="password-font">Confirm Password</p>
           <input type="password" name="confirm_password" id="confirm_password" class="project__input project__input__password">
+          <br>
+          <small style="color:red;font-size:12px;" id="password_error"></small>
         </div>
-        <button type="submit" class="btn btn__create">Create Account</button>
+        <button type="submit" class="btn btn__create" id="create_account_button">Create Account</button>
       </div>
 
     </div>

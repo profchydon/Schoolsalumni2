@@ -115,7 +115,7 @@ $("textarea").keyup(function() {
 
 // ? For pagination
 var header = document.getElementById("myDIV");
-var btns = header.getElementsByClassName("btns");
+var btns = document.getElementsByClassName("btns");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function () {
     var current = document.getElementsByClassName("actives");
